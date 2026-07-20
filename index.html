@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRASANNA R | Software Developer & Full-Stack Engineer</title>
+  <meta name="description"
+    content="Professional portfolio of PRASANNA R, an Aspiring Software Developer specializing in Java, React, Node.js, PostgreSQL, Chrome Extensions, and algorithmic problem solving.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22 width=%22100%22 height=%22100%22><text y=%220.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans for UI & JetBrains Mono for Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Remix Icon CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="style.css?v=1.2.0">
+</head>
+
+<body>
+
+  <!-- Animated Preloader Screen -->
+  <div id="preloader" class="preloader-overlay">
+    <!-- Glowing ambient background depth blobs -->
+    <div class="preloader-glow-circle glow-1"></div>
+    <div class="preloader-glow-circle glow-2"></div>
+
+    <div class="preloader-content">
+      <!-- High-tech dual-orbit loader ring around percentage readout -->
+      <div class="preloader-spinner-container">
+        <div class="preloader-ring-outer-spinner"></div>
+        <div class="preloader-ring-inner-spinner"></div>
+        <div class="preloader-percent-box">
+          <span id="preloader-percent" class="preloader-percent-num">0%</span>
+        </div>
+      </div>
+
+      <!-- Sleek progress bar and live status log -->
+      <div class="preloader-progress-box">
+        <div class="preloader-bar-bg">
+          <div id="preloader-bar" class="preloader-bar-fill"></div>
+        </div>
+        <div class="preloader-status-row">
+          <div class="preloader-status-indicator">
+            <span class="preloader-live-dot"></span>
+            <span id="preloader-log" class="preloader-log-text">Initializing core modules...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Canvas for Particle Constellation -->
+  <canvas id="particle-canvas" class="particle-canvas"></canvas>
+
+  <!-- Background decorative glowing blobs -->
+  <div class="blob-glow blob-1" aria-hidden="true"></div>
+  <div class="blob-glow blob-2" aria-hidden="true"></div>
+
+  <!-- Floating Toast Notifications Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="#hero" class="logo" id="nav-logo">
+        PRASANNA<span class="logo-accent">.R</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Journey</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Group in Nav -->
+      <div class="nav-actions">
+        <button class="terminal-trigger-btn" id="open-terminal-btn" title="Open Interactive CLI Terminal (Ctrl+K)">
+          <i class="ri-terminal-box-line"></i>
+          <span>CLI Mode</span>
+        </button>
+
+        <!-- Toggle Button for Mobile Navigation -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false"
+          aria-controls="nav-menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container container">
+        <div class="hero-content fade-in-up">
+          <div class="hero-badge">
+            <span class="badge-dot"></span> Available for Opportunities
+          </div>
+          <div class="hero-name-container">
+            <span class="hero-dash"></span>
+            <span class="hero-greeting">Hello, I'm</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="text-gradient">Prasanna R</span>
+          </h1>
+          <p class="hero-profession">Software Developer & Full-Stack Engineer</p>
+
+          <p class="hero-subtext">
+            Specializing in Java, React, Node.js, and PostgreSQL. Crafting AI-assisted web apps, browser extensions, and
+            solving complex algorithmic challenges.
+          </p>
+
+          <div class="hero-location">
+            <i class="ri-map-pin-2-fill"></i> Puducherry, India
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary" id="cta-view-work">
+              <span>Contact Me</span>
+              <i class="ri-arrow-right-line"></i>
+            </a>
+            <a href="assets/Prasanna - Hexaware .pdf" download="PRASANNA_R_Resume.pdf" class="btn btn-secondary"
+              id="cta-download-resume">
+              <i class="ri-file-download-line"></i>
+              <span>Download Resume</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Profile Visual (Rectangular Frame) -->
+        <div class="hero-visual fade-in-up">
+          <div class="profile-rect-container">
+            <div class="profile-rect-backdrop"></div>
+            <div class="profile-photo-wrapper">
+              <img src="assets/profile.jpg" alt="Prasanna R" class="profile-photo">
+              <div class="profile-card-badge">
+                <i class="ri-code-s-slash-line"></i> Full-Stack Engineer
+              </div>
+            </div>
+            <!-- Decorative code brackets -->
+            <div class="decor-bracket bracket-left">&lt;/&gt;</div>
+            <div class="decor-bracket bracket-right">Java</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal Tech Ribbon -->
+    <div class="tech-bar-ribbon">
+      <div class="tech-bar-container container">
+        <span class="tech-item"><i class="ri-java-line"></i> JAVA</span>
+        <span class="tech-item"><i class="ri-reactjs-line"></i> REACT.JS</span>
+        <span class="tech-item"><i class="ri-nodejs-line"></i> NODE.JS</span>
+        <span class="tech-item"><i class="ri-database-2-line"></i> POSTGRESQL</span>
+        <span class="tech-item"><i class="ri-javascript-line"></i> JAVASCRIPT</span>
+        <!-- <span class="tech-item"><i class="ri-chrome-line"></i> MANIFEST V3</span> -->
+        <span class="tech-item"><i class="ri-git-branch-line"></i> GIT & GITHUB</span>
+        <!-- <span class="tech-item"><i class="ri-code-box-line"></i> LEETCODE 280+</span> -->
+      </div>
+    </div>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section scroll-offset">
+      <div class="container">
+        <div class="about-layout-grid">
+
+          <!-- Left side: Core Focus Services -->
+          <div class="about-services fade-in-up">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="ri-code-s-slash-line"></i>
+              </div>
+              <div class="service-text">
+                <h3>Full-Stack Development</h3>
+                <p>Building scalable web applications using React (Vite), Node.js, Express, and PostgreSQL with robust
+                  REST APIs.</p>
+              </div>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="ri-chrome-fill"></i>
+              </div>
+              <div class="service-text">
+                <h3>Chrome Extension Engineering</h3>
+                <p>Creating browser tools using Manifest V3, Web Speech API, Dictionary API, and Shadow DOM isolated
+                  tooltips.</p>
+              </div>
+            </div>
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="ri-terminal-box-line"></i>
+              </div>
+              <div class="service-text">
+                <h3>Algorithmic Problem Solving</h3>
+                <p>Solved 280+ LeetCode problems mastering Data Structures, Algorithms, and Object-Oriented Design.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side: Bio and Stats -->
+          <div class="about-content fade-in-up">
+            <span class="section-tagline">Background</span>
+            <h2 class="about-section-title">About me</h2>
+            <div class="about-bio-text">
+              <p>
+                Aspiring Software Developer with a strong foundation in Java, Full-Stack Development, and
+                problem-solving, seeking an entry-level opportunity to design, develop, and maintain scalable software
+                applications.
+              </p>
+              <p>
+                Passionate about building real-world solutions, learning emerging technologies, and contributing to
+                organizational success while continuously enhancing my technical skills in database architectures and
+                low-level data structures.
+              </p>
+            </div>
+
+            <!-- Stats Counters -->
+            <div class="about-stats-container" data-metric-card>
+              <div class="stat-box">
+                <div class="stat-num-row">
+                  <span class="stat-number metric-number" data-target="280">0</span><span class="stat-plus">+</span>
+                </div>
+                <span class="stat-label">LeetCode Solved</span>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num-row">
+                  <span class="stat-number-float">8.6</span>
+                </div>
+                <span class="stat-label">B.Tech CGPA</span>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num-row">
+                  <span class="stat-number metric-number" data-target="3">0</span>
+                </div>
+                <span class="stat-label">Featured Projects</span>
+              </div>
+            </div>
+
+            <!-- Languages spoken badges -->
+            <div class="languages-row">
+              <span class="lang-title"><i class="ri-global-line"></i> Spoken Languages:</span>
+              <span class="lang-tag">English (Fluent)</span>
+              <span class="lang-tag">Tamil (Native)</span>
+              <span class="lang-tag">French (Basics)</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="skills-section scroll-offset">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tagline">Capabilities</span>
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Filter Tabs for Skills -->
+        <div class="filter-container fade-in-up">
+          <button class="filter-tab active" data-filter="all">All Skills</button>
+          <button class="filter-tab" data-filter="languages">Languages</button>
+          <button class="filter-tab" data-filter="frameworks">Frameworks & DB</button>
+          <button class="filter-tab" data-filter="tools">Tools & Concepts</button>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1: Languages -->
+          <div class="skill-card fade-in-up" data-category="languages">
+            <div class="skill-card-icon">
+              <i class="ri-code-s-slash-line"></i>
+            </div>
+            <h3 class="skill-card-title">Programming Languages</h3>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <span class="skill-name">Java</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">HTML5 & CSS3</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Python (Basics)</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 60%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Frameworks & DB -->
+          <div class="skill-card fade-in-up" data-category="frameworks">
+            <div class="skill-card-icon">
+              <i class="ri-instance-line"></i>
+            </div>
+            <h3 class="skill-card-title">Frontend, Backend & DB</h3>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <span class="skill-name">React.js</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Node.js</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Express.js</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">PostgreSQL</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 3: Developer Tools & Concepts -->
+          <div class="skill-card fade-in-up" data-category="tools">
+            <div class="skill-card-icon">
+              <i class="ri-tools-line"></i>
+            </div>
+            <h3 class="skill-card-title">Tools & Core Concepts</h3>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <span class="skill-name">Git & GitHub</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">VS Code & Postman</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">OOP & Data Structures</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">REST APIs Architecture</span>
+                <div class="skill-progress-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="projects-section scroll-offset">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tagline">My Works</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="filter-container fade-in-up">
+          <button class="project-filter-tab active" data-project-filter="all">All Projects</button>
+          <button class="project-filter-tab" data-project-filter="web-app">Full-Stack & Web</button>
+          <button class="project-filter-tab" data-project-filter="extension">Chrome Extensions</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Smart Trip Planner -->
+          <article class="project-card fade-in-up" data-project-category="web-app">
+            <div class="project-card-inner">
+              <div class="project-header-row">
+                <div class="project-icon">
+                  <i class="ri-compass-3-line"></i>
+                </div>
+                <span class="project-year-badge">2025 – 2026</span>
+              </div>
+              <h3 class="project-title">Smart Trip Planner</h3>
+              <p class="project-description">
+                A full-stack AI-assisted travel itinerary planner built using React (Vite), Node.js (Express), and
+                PostgreSQL to generate personalized day-wise travel plans based on destination, budget, travel style,
+                and companion type. Implemented proximity-based routing using Haversine formula, Leaflet maps, weather
+                integration, budget analytics, PDF export, JWT & Google OAuth authentication, and an admin dashboard.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React (Vite)</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Haversine Routing</span>
+                <span class="tag">Leaflet Maps</span>
+                <span class="tag">Google OAuth</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Prasanna-17-hub/SMART_TRIP" target="_blank" rel="noopener noreferrer"
+                  class="project-link" aria-label="GitHub Repository for Smart Trip Planner">
+                  <i class="ri-github-fill"></i> Code
+                </a>
+                <a href="#" class="project-link" aria-label="Live Demo for Smart Trip Planner">
+                  <i class="ri-external-link-line"></i> Live Link
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Music Application -->
+          <article class="project-card fade-in-up" data-project-category="web-app">
+            <div class="project-card-inner">
+              <div class="project-header-row">
+                <div class="project-icon">
+                  <i class="ri-music-2-line"></i>
+                </div>
+                <span class="project-year-badge">Feb – Apr 2025</span>
+              </div>
+              <h3 class="project-title">Music Application (Qspiders)</h3>
+              <p class="project-description">
+                Built a responsive web music player that allows users to play, pause, and navigate through tracks.
+                Features a user-friendly interface with real-time audio control handles and playlist management. Hosted
+                on Firebase with public code available on GitHub for collaboration.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Web Audio API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Prasanna-17-hub/music-application" target="_blank" rel="noopener noreferrer"
+                  class="project-link" aria-label="GitHub Repository for Music Application">
+                  <i class="ri-github-fill"></i> Code
+                </a>
+                <a href="#" class="project-link" aria-label="Live Demo for Music Application">
+                  <i class="ri-external-link-line"></i> Live Link
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Quick Dictionary Chrome Extension -->
+          <article class="project-card fade-in-up" data-project-category="extension">
+            <div class="project-card-inner">
+              <div class="project-header-row">
+                <div class="project-icon">
+                  <i class="ri-book-read-line"></i>
+                </div>
+                <span class="project-year-badge">2025 – 2026</span>
+              </div>
+              <h3 class="project-title">Quick Dictionary (Chrome Extension)</h3>
+              <p class="project-description">
+                Developed a Chrome Extension using JavaScript (Manifest V3), HTML, and CSS that provides instant English
+                word definitions through intelligent hover detection and manual search. Integrated Dictionary API, Web
+                Speech API, and Shadow DOM for pronunciation, isolated tooltips, keyboard shortcuts, and Light/Dark
+                themes.
+              </p>
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">Manifest V3</span>
+                <span class="tag">Chrome API</span>
+                <span class="tag">Web Speech API</span>
+                <span class="tag">Shadow DOM</span>
+                <span class="tag">Dictionary API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Prasanna-17-hub/Quick_Dictionary" target="_blank" rel="noopener noreferrer"
+                  class="project-link" aria-label="GitHub Repository for Quick Dictionary Extension">
+                  <i class="ri-github-fill"></i> Code
+                </a>
+                <a href="#" class="project-link" aria-label="Live Demo for Quick Dictionary Extension">
+                  <i class="ri-external-link-line"></i> Live Link
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey: Experience & Education Section -->
+    <section id="education" class="education-section scroll-offset">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tagline">Academic & Professional Journey</span>
+          <h2 class="section-title">Experience & Education</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="education-grid">
+          <!-- Left Column: Internship & LeetCode -->
+          <div class="journey-col">
+            <!-- Internship Card -->
+            <div class="journey-card fade-in-up">
+              <div class="journey-badge-icon">
+                <i class="ri-briefcase-line"></i>
+              </div>
+              <span class="journey-card-subtitle">VaultofCodes</span>
+              <h3 class="journey-card-title">Web Development Intern</h3>
+              <span class="journey-meta"><i class="ri-calendar-line"></i> 1-Month Internship</span>
+              <p class="journey-card-description" style="margin-top: 0.75rem;">
+                Completed a one-month Web Development Internship at VaultofCodes, where I developed responsive web
+                applications using modern web technologies, enhanced frontend UI development, API testing, and semantic
+                layouts.
+              </p>
+            </div>
+
+            <!-- Problem Solving & LeetCode Metric Card -->
+            <div class="journey-card metric-card fade-in-up" data-metric-card>
+              <div class="journey-badge-icon">
+                <i class="ri-terminal-box-line"></i>
+              </div>
+              <span class="journey-card-subtitle">LeetCode Problem Solving</span>
+              <h3 class="journey-card-title" style="margin-bottom: 0.5rem;">280+ Solved Problems</h3>
+
+              <div class="metric-container">
+                <div class="metric-number-wrapper">
+                  <span class="metric-number" data-target="280">0</span><span class="metric-plus">+</span>
+                </div>
+                <p class="metric-label">Coding Problems Solved on LeetCode</p>
+              </div>
+              <p class="journey-card-description" style="margin-top: 1rem;">
+                Actively practicing algorithmic problem solving, mastering logic structures, recursion, dynamic
+                programming, sorting, graph algorithms, and array manipulations.
+              </p>
+
+              <!-- Difficulty Breakdown Bar -->
+              <div class="leetcode-breakdown" style="margin-top: 1.5rem;">
+                <div class="breakdown-track">
+                  <div class="breakdown-segment segment-easy" style="width: 68%;" title="Easy: 190 solved"></div>
+                  <div class="breakdown-segment segment-medium" style="width: 30%;" title="Medium: 84 solved"></div>
+                  <div class="breakdown-segment segment-hard" style="width: 2%;" title="Hard: 6 solved"></div>
+                </div>
+                <div class="breakdown-labels">
+                  <span class="lbl-easy"><span class="dot-green"></span> Easy: 190</span>
+                  <span class="lbl-medium"><span class="dot-yellow"></span> Medium: 84</span>
+                  <span class="lbl-hard"><span class="dot-red"></span> Hard: 6</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Education & Certifications -->
+          <div class="journey-col">
+            <!-- Higher Education: B.Tech -->
+            <div class="journey-card fade-in-up">
+              <div class="journey-badge-icon">
+                <i class="ri-graduation-cap-line"></i>
+              </div>
+              <span class="journey-card-subtitle">Panimalar Engineering College, Chennai</span>
+              <h3 class="journey-card-title">B.Tech in Computer Science & Business Systems</h3>
+              <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                <span class="journey-meta"><i class="ri-calendar-line"></i> 2023 - 2027</span>
+                <span class="journey-meta-badge"><i class="ri-star-fill"></i> CGPA: 8.6 / 10.0</span>
+              </div>
+              <p class="journey-card-description" style="margin-top: 1.25rem;">
+                Studying core fields like Data Structures, Software Engineering, Database Management Systems, Operations
+                Management, and Financial Accounting to bridge software development with business strategies.
+              </p>
+              <div class="education-subjects">
+                <span class="subject-tag">Data Structures & Algo</span>
+                <span class="subject-tag">Software Engineering</span>
+                <span class="subject-tag">DBMS</span>
+                <span class="subject-tag">Operations Management</span>
+              </div>
+            </div>
+
+            <!-- Schooling: XII HSC -->
+            <div class="journey-card fade-in-up">
+              <div class="journey-badge-icon">
+                <i class="ri-building-line"></i>
+              </div>
+              <span class="journey-card-subtitle">Vidhya Niketan Hr Sec School, Puducherry</span>
+              <h3 class="journey-card-title">HSC – Class XII</h3>
+              <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                <span class="journey-meta"><i class="ri-calendar-line"></i> 2022 - 2023</span>
+                <span class="journey-meta-badge"><i class="ri-award-line"></i> Percentage: 78.16%</span>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="journey-card fade-in-up">
+              <div class="journey-badge-icon">
+                <i class="ri-award-line"></i>
+              </div>
+              <span class="journey-card-subtitle">Industry Certifications</span>
+              <h3 class="journey-card-title">Professional Credentials</h3>
+
+              <ul class="cert-list">
+                <li class="cert-item">
+                  <div class="cert-item-icon"><i class="ri-checkbox-circle-fill"></i></div>
+                  <div class="cert-item-details">
+                    <h4 class="cert-item-name">Web Development</h4>
+                    <p class="cert-item-issuer">QSpiders, Chennai (Feb 2025)</p>
+                  </div>
+                </li>
+                <li class="cert-item">
+                  <div class="cert-item-icon"><i class="ri-checkbox-circle-fill"></i></div>
+                  <div class="cert-item-details">
+                    <h4 class="cert-item-name">Basics of Machine Learning</h4>
+                    <p class="cert-item-issuer">NPTEL SWAYAM (Oct 2025)</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section scroll-offset">
+      <div class="container">
+        <div class="contact-card fade-in-up">
+          <div class="section-header center">
+            <span class="section-tagline">Get In Touch</span>
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="section-line"></div>
+          </div>
+          <p class="contact-text">
+            I'm currently seeking software development entry-level opportunities and internships where I can contribute
+            to building scalable apps. Feel free to reach out directly via email or phone!
+          </p>
+
+          <div class="contact-channels">
+            <button class="contact-btn email-btn copy-btn" data-copy="prasannaraja17032006@gmail.com"
+              id="contact-email">
+              <i class="ri-mail-send-line"></i>
+              <span>prasannaraja17032006@gmail.com</span>
+              <i class="ri-file-copy-line copy-icon"></i>
+            </button>
+            <!-- <button class="contact-btn phone-btn copy-btn" data-copy="+91 7010185226" id="contact-phone">
+              <i class="ri-phone-line"></i>
+              <span>+91 7010185226</span>
+              <i class="ri-file-copy-line copy-icon"></i>
+            </button> -->
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/Prasanna-17-hub" target="_blank" rel="noopener noreferrer"
+              class="social-icon-link" aria-label="GitHub Profile" title="GitHub: Prasanna-17-hub">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a href="https://linkedin.com/in/prasanna-17r" target="_blank" rel="noopener noreferrer"
+              class="social-icon-link" aria-label="LinkedIn Profile" title="LinkedIn: prasanna-17r">
+              <i class="ri-linkedin-box-fill"></i>
+            </a>
+            <a href="https://leetcode.com/Prasanna-1714" target="_blank" rel="noopener noreferrer"
+              class="social-icon-link" aria-label="LeetCode Profile" title="LeetCode: Prasanna-1714">
+              <i class="ri-terminal-box-line"></i>
+            </a>
+            <a href="mailto:prasannaraja17032006@gmail.com" class="social-icon-link" aria-label="Send Email"
+              title="Send Direct Email">
+              <i class="ri-mail-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Terminal CLI Modal -->
+  <div id="terminal-modal" class="terminal-modal-overlay" aria-hidden="true">
+    <div class="terminal-window-container">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="term-dot dot-close" id="close-terminal-btn"></span>
+          <span class="term-dot dot-minimize"></span>
+          <span class="term-dot dot-maximize"></span>
+        </div>
+        <div class="terminal-title"><i class="ri-terminal-box-fill"></i> prasanna-r@portfolio: ~ (Interactive Shell)
+        </div>
+        <button class="terminal-close-x" id="close-terminal-x">&times;</button>
+      </div>
+      <div class="terminal-body" id="terminal-output">
+        <div class="term-line term-welcome">⚡ Welcome to Prasanna R's Interactive Terminal CLI!</div>
+        <div class="term-line term-sub">Type <span class="term-cmd">help</span> for a list of available commands, or try
+          <span class="term-cmd">skills</span>, <span class="term-cmd">projects</span>, <span
+            class="term-cmd">education</span>, <span class="term-cmd">contact</span>, or <span
+            class="term-cmd">resume</span>.
+        </div>
+      </div>
+      <div class="terminal-input-row">
+        <span class="term-prompt">prasanna@dev:~$</span>
+        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false"
+          placeholder="Type a command (e.g. help)..." />
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="copyright">&copy; 2026 PRASANNA R. All rights reserved.</p>
+      <p class="footer-design">Designed & Built with <span class="heart">❤</span> | Press <kbd>Ctrl</kbd> + <kbd>K</kbd>
+        for CLI</p>
+    </div>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="script.js?v=1.2.0"></script>
+</body>
+
+</html>
